@@ -39,8 +39,8 @@ module.exports = {
     },
     themeConfig: {
         nav: [
-          { text: '基础', link: getNav('base') },
-          { text: 'guide', link: getNav('guide') },
+          { text: '基础', link: getNav('common') },
+          { text: 'mac', link: getNav('mac') },
           { text: 'Blog', link: 'https://shudong.wang/' },
           { text: 'Github', link: 'https://github.com/wsdo/' },
         ],
@@ -49,12 +49,12 @@ module.exports = {
           {
             title: '基础',
             // collapsable: false,
-            children: getFileName('base')
+            children: getFileName('common')
           },
           {
-            title: 'guide',
+            title: 'mac',
             // collapsable: false,
-            children: getFileName('guide')
+            children: getFileName('mac')
           },
         ],
         lastUpdated: 'Last Updated',

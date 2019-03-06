@@ -10,7 +10,7 @@ npm run build
 cd dist
 
 # 如果是发布到自定义域名
-echo 'fe.shudong.wang' > CNAME
+echo 'gtd.info' > CNAME
 
 git init
 git remote add origin https://github.com/wsdo/fefaq.git
