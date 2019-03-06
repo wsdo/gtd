@@ -1,7 +1,39 @@
-const readFileList = require('../../scripts/build.js');
+const DOCS = '/docs/'
+var fs = require('fs');
+
+const getFileName = (name) => {
+  let arr = []
+  fs.readdirSync(`./docs/${name}`).filter(function(file) {
+    return (/\.(js|md)$/i).test(file);
+  }).map(function(file) {
+    s1 = file.substring(0,file.indexOf("."))
+    let res= ''
+    if(s1 === 'readme' || s1 === 'README'){
+      res = DOCS + name + '/'
+    }else{
+      res = DOCS + name + '/' + s1
+    }
+    arr.push(res)
+  });
+  console.log('arr',arr)
+  return arr
+}
+
+const getNav = (name)=>{
+  return DOCS + name + '/'
+}
+// console.log(getChildrenName('guide'))
+// let file = getFileName('guide')
+// console.log('file111',file)
+
+
+
+const sidebar = {
+
+}
 module.exports = {
     base:'/',
-    // dest:'public', //指定 vuepress build 的输出目录
+    dest:'public', //指定 vuepress build 的输出目录
     title: '前端面试题',
     description: '前端面试题整理',
     // 为每个代码块显示行号
@@ -10,8 +42,8 @@ module.exports = {
     },
     themeConfig: {
         nav: [
-          { text: '基础', link: '/base/',url: '/base.html' },
-          { text: 'guide', link: '/guide/' },
+          { text: '基础', link: getNav('base'),url: '/base.html' },
+          { text: 'guide', link: getNav('guide') },
           { text: 'Blog', link: 'https://shudong.wang/' },
           { text: 'Github', link: 'https://github.com/wsdo/' },
         ],
@@ -20,19 +52,12 @@ module.exports = {
           {
             title: '基础',
             // collapsable: false,
-            children: [
-              '/base/',
-              '/base/hllo.html',
-            ]
+            children: getFileName('base')
           },
           {
             title: 'guide',
             // collapsable: false,
-            children: [
-              '/guide/',
-              '/guide/world',
-              '/guide/markdown'
-            ]
+            children: getFileName('guide')
           },
         ],
         lastUpdated: 'Last Updated',
