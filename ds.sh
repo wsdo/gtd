@@ -4,21 +4,21 @@
 set -e
 
 # 生成静态文件
-npm run build
+# npm run build
 
 # 进入生成的文件夹
-cd dist
+cd docs
 
 # 如果是发布到自定义域名
-echo 'fe.shudong.wang' > CNAME
+# echo 'fe.shudong.wang' > CNAME
 
-git init
-git remote add origin https://github.com/wsdo/fefaq.git
-git add -A
-git commit -m 'deploy'
+# git init
+# git remote add origin https://github.com/wsdo/fefaq.git
+# git add -A
+# git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
- git push -f  origin master:gh-pages
+ git push  master

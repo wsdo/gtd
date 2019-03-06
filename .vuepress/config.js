@@ -1,17 +1,18 @@
-const DOCS = '/docs/'
+const RDOCS = './docs/'
+const ADOCS = '/docs/'
 var fs = require('fs');
 
 const getFileName = (name) => {
   let arr = []
-  fs.readdirSync(`./docs/${name}`).filter(function(file) {
+  fs.readdirSync(`${RDOCS}${name}`).filter(function(file) {
     return (/\.(js|md)$/i).test(file);
   }).map(function(file) {
     s1 = file.substring(0,file.indexOf("."))
     let res= ''
     if(s1 === 'readme' || s1 === 'README'){
-      res = DOCS + name + '/'
+      res = ADOCS + name + '/'
     }else{
-      res = DOCS + name + '/' + s1
+      res = ADOCS + name + '/' + s1
     }
     arr.push(res)
   });
@@ -20,20 +21,16 @@ const getFileName = (name) => {
 }
 
 const getNav = (name)=>{
-  return DOCS + name + '/'
+  return ADOCS + name + '/'
+  // return DOCS + name + '/'
 }
 // console.log(getChildrenName('guide'))
 // let file = getFileName('guide')
 // console.log('file111',file)
 
-
-
-const sidebar = {
-
-}
 module.exports = {
     base:'/',
-    dest:'public', //指定 vuepress build 的输出目录
+    dest:'dist', //指定 vuepress build 的输出目录
     title: '前端面试题',
     description: '前端面试题整理',
     // 为每个代码块显示行号
@@ -42,7 +39,7 @@ module.exports = {
     },
     themeConfig: {
         nav: [
-          { text: '基础', link: getNav('base'),url: '/base.html' },
+          { text: '基础', link: getNav('base') },
           { text: 'guide', link: getNav('guide') },
           { text: 'Blog', link: 'https://shudong.wang/' },
           { text: 'Github', link: 'https://github.com/wsdo/' },
