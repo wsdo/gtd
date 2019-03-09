@@ -40,23 +40,69 @@ module.exports = {
     themeConfig: {
         nav: [
           { text: '基础', link: getNav('base') },
+          { text: '进阶', link: getNav('advance') },
+          { text: 'react', link: getNav('react') },
+          { text: 'vue', link: getNav('vue') },
+          { text: 'node', link: getNav('node') },
           { text: 'guide', link: getNav('guide') },
+          { text: '打印', link: getNav('print') },
           { text: 'Blog', link: 'https://shudong.wang/' },
           { text: 'Github', link: 'https://github.com/wsdo/' },
         ],
+        sidebar:{
+          [`${ADOCS}base/`]:[
+              ADOCS + 'base/',
+              ADOCS + 'base/css',
+              ADOCS + 'base/Ajax',
+              ADOCS + 'base/dom-event',
+          ],
+          [`${ADOCS}advance/`]:[
+              ADOCS + 'advance/',
+              ADOCS + 'advance/closure',
+              ADOCS + 'advance/depth-copy',
+              ADOCS + 'advance/this',
+          ],
+        },
         // sidebar: 'auto',
-        sidebar: [
-          {
-            title: '基础',
-            // collapsable: false,
-            children: getFileName('base')
-          },
-          {
-            title: 'guide',
-            // collapsable: false,
-            children: getFileName('guide')
-          },
-        ],
+        // sidebar: [
+        //   {
+        //     title: '基础',
+        //     // collapsable: false,
+        //     // children: getFileName('base')
+        //     children: [
+        //       ADOCS + 'base/',
+        //       ADOCS + 'base/css',
+        //       ADOCS + 'base/Ajax',
+        //       ADOCS + 'base/dom-event',
+        //     ]
+        //   },
+        //   {
+        //     title: '进阶',
+        //     // collapsable: false,
+        //     // children: getFileName('advance')
+        //     children: [
+        //       ADOCS + 'advance/',
+        //       ADOCS + 'advance/closure',
+        //       ADOCS + 'advance/depth-copy',
+        //       ADOCS + 'advance/this',
+        //     ]
+        //   },
+        //   {
+        //     title: 'guide',
+        //     // collapsable: false,
+        //     children: getFileName('guide')
+        //   },
+        //   {
+        //     title: 'node',
+        //     // collapsable: false,
+        //     children: getFileName('node')
+        //   },
+        //   {
+        //     title: '打印',
+        //     // collapsable: false,
+        //     children: getFileName('print')
+        //   },
+        // ],
         lastUpdated: 'Last Updated',
         // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
         repo: 'wsdo/fefaq',
@@ -69,9 +115,9 @@ module.exports = {
         // 假如你的文档仓库和项目本身不在一个仓库：
         docsRepo: '/wsdo/fefaq',
         // 假如文档不是放在仓库的根目录下：
-        docsDir: 'docs',
+        // docsDir: 'docs',
         // 假如文档放在一个特定的分支下：
-        docsBranch: 'dev',
+        docsBranch: 'master',
         // 默认是 false, 设置为 true 来启用
         editLinks: true,
         // 默认为 "Edit this page"
